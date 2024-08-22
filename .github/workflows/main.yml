@@ -15,9 +15,9 @@ jobs:
           fetch-depth: 0
       - name: Add remote 
         env:
-          HF: ${{ secrets.HF }}
-        run: git remote add space https://noahgift:$HF@huggingface.co/spaces/noahgift/demo
+          HF: ${{ secrets.HG }}
+        run: git remote add space https://arin-g:$HG@huggingface.co/spaces/arin-g/PSSD-Beacon
       - name: Push to hub
         env:
-          HF: ${{ secrets.HF }}
-        run: git push --force https://noahgift:$HF@huggingface.co/spaces/noahgift/demo main
+          HF: ${{ secrets.HG }}
+        run: git push --force https://arin-g:$HG@huggingface.co/spaces/arin-g/PSSD-Beacon main
