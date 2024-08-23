@@ -13,11 +13,16 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Connect to HF git on SSH 
+        env:
+          HG: ${{ secrets.HG_GIT_SSSH_KEY }}
+        run: git remote set-url origin git@hf.co:huggingface.co/spaces/arin-g/PSSD-Beacon
+
       - name: Add remote 
         env:
-          HF: ${{ secrets.HG }}
+          HG: ${{ secrets.HG_GIT_SSSH_KEY }}
         run: git remote add space https://arin-g:$HG@huggingface.co/spaces/arin-g/PSSD-Beacon
       - name: Push to hub
         env:
-          HF: ${{ secrets.HG }}
+          HG: ${{ secrets.HG_GIT_SSSH_KEY }}
         run: git push --force https://arin-g:$HG@huggingface.co/spaces/arin-g/PSSD-Beacon main
