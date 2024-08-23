@@ -1,0 +1,29 @@
+name: Sync to Hugging Face hub
+on:
+  push:
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up SSH for Hugging Face
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.HG_GIT_SSH_KEY }}
+      - name: Configure SSH known hosts for Hugging Face
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan hf.co >> ~/.ssh/known_hosts
+      - name: Connect to HF git on SSH 
+        run: git remote set-url origin git@hf.co:spaces/arin-g/PSSD-Beacon
+      - name: Add remote 
+        run: git remote add space git@hf.co:spaces/arin-g/PSSD-Beacon
+      - name: Push to hub
+        run: git push --force git@hf.co:spaces/arin-g/PSSD-Beacon main
