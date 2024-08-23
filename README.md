@@ -7,7 +7,7 @@ sdk: gradio
 sdk_version: 4.42.0
 app_file: PSSD-app.py
 pinned: false
-license: GPL v3.0
+license: gpl-3.0
 ---
 
 
