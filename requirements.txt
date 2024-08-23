@@ -2,3 +2,4 @@ gradio
 transformers
 tensorflow
 tf-keras
+pandas
