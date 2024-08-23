@@ -13,6 +13,14 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Set up SSH for Hugging Face
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.HG_GIT_SSSH_KEY }}
+      - name: Configure SSH known hosts for Hugging Face
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan hf.co >> ~/.ssh/known_hosts
       - name: Connect to HF git on SSH 
         env:
           HG: ${{ secrets.HG_GIT_SSSH_KEY }}
