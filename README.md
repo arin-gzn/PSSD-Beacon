@@ -11,7 +11,7 @@ license: gpl-3.0
 ---
 
 
-[![Sync to Hugging Face hub](https://github.com/nogibjj/hugging-face/actions/workflows/main.yml/badge.svg)]([https://github.com/arin-gzn/PSSD-Beacon/blob/main/.github/workflows/main.yml)
+[Sync to Hugging Face hub](https://github.com/arin-gzn/PSSD-Beacon/blob/main/.github/workflows/main.yml)
 
 
 [Try Demo Text Summarization Here](https://huggingface.co/spaces/arin-g/PSSD-Beacon)
